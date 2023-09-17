@@ -1,0 +1,15 @@
+# Use a base image with a C compiler
+FROM gcc:latest
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the C program and the AUTHORS template file into the container
+COPY main.c AUTHORS_template.txt .
+
+# Compile the C program
+RUN gcc -o authors_program main.c
+
+# Run the program when the container starts
+CMD ["./authors_program"]
+
