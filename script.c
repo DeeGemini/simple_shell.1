@@ -4,7 +4,7 @@
 #define MAX_SCRIPT_LINE_SIZE 1024
 
 static char *script[MAX_SCRIPT_SIZE];
-static int script_count = 0;
+static int script_count;
 
 /**
  * load_script - Load a script from a file into memory.
@@ -36,7 +36,7 @@ int load_script(const char *filename)
 				script_count++;
 			}
 		}
-		
+
 		else
 		{
 			break;
@@ -51,7 +51,7 @@ int load_script(const char *filename)
 /**
  * execute_script - Execute the loaded script.
  */
-void execute_script()
+void execute_script(void)
 {
 	for (int i = 0; i < script_count; i++)
 	{
@@ -62,7 +62,7 @@ void execute_script()
 /**
  * free_script - Free memory allocated for the script.
  */
-void free_script()
+void free_script(void)
 {
 	for (int i = 0; i < script_count; i++)
 	{
