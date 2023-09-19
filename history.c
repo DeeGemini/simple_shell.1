@@ -4,7 +4,7 @@
 #define MAX_HISTORY_ENTRY_SIZE 1024
 
 static char *history[MAX_HISTORY_SIZE];
-static int history_count = 0;
+static int history_count;
 
 /**
  * add_to_history - Add a command to the command history.
@@ -22,7 +22,7 @@ void add_to_history(const char *command)
 			history_count++;
 		}
 	}
-	
+
 	else
 	{
 		free(history[0]);
@@ -38,7 +38,7 @@ void add_to_history(const char *command)
 /**
  * print_history - Print the command history.
  */
-void print_history()
+void print_history(void)
 {
 	for (int i = 0; i < history_count; i++)
 	{
@@ -49,7 +49,7 @@ void print_history()
 /**
  * free_history - Free memory allocated for command history.
  */
-void free_history()
+void free_history(void)
 {
 	for (int i = 0; i < history_count; i++)
 	{
@@ -70,7 +70,7 @@ const char *get_history_entry(int index)
 	{
 		return (history[index - 1]);
 	}
-	
+
 	else
 	{
 		return (NULL);
