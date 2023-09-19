@@ -21,4 +21,3 @@ void *allocate_mem(size_t size)
 
 	return (ptr);
 }
-
