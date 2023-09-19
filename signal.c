@@ -20,9 +20,10 @@ void handle_signal(int signal)
  *
  * Return: 0 on success, -1 on failure.
  */
-int setup_signal_handler()
+int setup_signal_handler(void)
 {
 	struct sigaction sa;
+
 	sa.sa_handler = handle_signal;
 	sa.sa_flags = SA_RESTART;
 
