@@ -36,9 +36,9 @@ char *str_trim(char *str)
 	{
 		str++;
 	}
-	
+
 	end = str + strlen(str) - 1;
-	
+
 	while (end > str && isspace(*end))
 	{
 		end--;
