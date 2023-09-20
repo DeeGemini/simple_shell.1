@@ -10,7 +10,8 @@ int execute_command(char **args)
 	if (args[0] == NULL)
 		return (0);
 
-	int background = check_background(args);
+	int background;
+	background = check_background(args);
 
 	int pipes[2] = {-1, -1};
 
@@ -20,7 +21,8 @@ int execute_command(char **args)
 		return (-1);
 	}
 
-	pid_t pid = fork();
+	pid_t pid;
+	pid = fork();
 
 	if (pid == -1)
 	{
