@@ -6,7 +6,7 @@
  *
  * Return: An array of strings representing commands and arguments.
  */
-char **parse_input(char *input)
+char handle_file_mode(const char *filename)
 {
 	int bufsize = 64;
 	int position = 0;
@@ -19,7 +19,7 @@ char **parse_input(char *input)
 		exit(EXIT_FAILURE);
 	}
 
-	token = strtok(input, " ");
+	token = strtok((char *)input, " ");
 	while (token != NULL)
 	{
 		tokens[position] = token;
