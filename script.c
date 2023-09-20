@@ -24,6 +24,7 @@ int load_script(const char *filename)
 	}
 
 	char line[MAX_SCRIPT_LINE_SIZE];
+	int i = 0;
 
 	while (fgets(line, sizeof(line), file) != NULL)
 	{
@@ -53,7 +54,9 @@ int load_script(const char *filename)
  */
 void execute_script(void)
 {
-	for (int i = 0; i < script_count; i++)
+	int i;
+
+	for (i = 0; i < script_count; i++)
 	{
 		printf("Executing: %s", script[i]);
 	}
@@ -64,7 +67,9 @@ void execute_script(void)
  */
 void free_script(void)
 {
-	for (int i = 0; i < script_count; i++)
+	int i;
+
+	for (i = 0; i < script_count; i++)
 	{
 		free(script[i]);
 	}
