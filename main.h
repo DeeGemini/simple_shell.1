@@ -15,10 +15,8 @@
 #include <ctype.h>
 
 void handle_interactive_mode(void);
-void handle_file_mode(char *filename);
 void prompt_user(void);
 char *read_input();
-char **parse_input(char *input);
 int execute_command(char **args);
 int execute_builtin(char **args);
 int execute_exit(void);
