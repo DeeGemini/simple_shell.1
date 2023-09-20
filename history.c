@@ -13,6 +13,8 @@ static int history_count;
  */
 void add_to_history(const char *command)
 {
+	int i;
+
 	if (history_count < MAX_HISTORY_SIZE)
 	{
 		history[history_count] = strdup(command);
@@ -27,7 +29,7 @@ void add_to_history(const char *command)
 	{
 		free(history[0]);
 
-		for (int i = 0; i < history_count - 1; i++)
+		for (i = 0; i < history_count - 1; i++)
 		{
 			history[i] = history[i + 1];
 		}
@@ -40,7 +42,9 @@ void add_to_history(const char *command)
  */
 void print_history(void)
 {
-	for (int i = 0; i < history_count; i++)
+	int i;
+
+	for (i = 0; i < history_count; i++)
 	{
 		printf("%d: %s\n", i + 1, history[i]);
 	}
@@ -51,7 +55,9 @@ void print_history(void)
  */
 void free_history(void)
 {
-	for (int i = 0; i < history_count; i++)
+	int i;
+
+	for (i = 0; i < history_count; i++)
 	{
 		free(history[i]);
 	}
