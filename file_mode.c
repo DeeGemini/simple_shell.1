@@ -7,7 +7,7 @@
  *
  * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure.
  */
-int process_file(char *filename)
+int process_file(const char *filename)
 {
 	FILE *file = fopen(filename, "r");
 
@@ -30,6 +30,13 @@ int process_file(char *filename)
 		for (int i = 0; commands[i] != NULL; i++)
 		{
 			int status = execute_command(commands[i]);
+
+			if (status != EXIT_SUCCESS)
+			{
+				fprintf(stderr, "Command failed: %s\n", commands[i]);
+
+				overall_status = EXIT_FAILURE;
+			}
 		}
 
 		free(commands);
